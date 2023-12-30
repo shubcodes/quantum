@@ -54,7 +54,9 @@ def compute_cost(graph, bitstring):
     return cost
 
 # Function to calculate the expectation value of the cost function
-def expectation_value(graph, params):
+def expectation_value(params, graph):
+    #print("Type of params:", type(params))
+    #print("Value of params:", params)
     circuit = create_qaoa_circuit(qubits, graph, p, params)
     simulator = cirq.Simulator()
     results = simulator.run(circuit, repetitions=1000)
